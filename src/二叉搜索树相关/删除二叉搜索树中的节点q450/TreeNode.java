@@ -53,3 +53,7 @@ public class TreeNode {
         val=x;
     }
 }
+class Solution
+{
+
+}
