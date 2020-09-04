@@ -14,7 +14,7 @@ public class ListNode {
      * 数据域
      */
     int val;
-
+  double dsad=37.0f;
     /**
      * 指针域
      */
