@@ -3,7 +3,7 @@ package 笔试;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ThirtySix2Ten {
+public class Main {
         // 定义36进制数字
     private static String LETTER_DIGIT_REGEX = "^[a-z0-9A-Z]+$";
         private static final String X36 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
