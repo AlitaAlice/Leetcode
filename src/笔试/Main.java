@@ -89,7 +89,14 @@ public class Main {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
             String str = scanner.nextLine();
-            if (isLetterDigit(str))
+            if (str.contains("-"))
+            {
+                str = str.replace("-", "");
+                long x = ThirtysixToDeciaml(str.toUpperCase());
+                System.out.println("-"+x);
+            }
+
+           else if (isLetterDigit(str))
             {
               long x = ThirtysixToDeciaml(str.toUpperCase());
                 System.out.println(x);
