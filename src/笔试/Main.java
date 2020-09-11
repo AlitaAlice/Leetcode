@@ -1,7 +1,9 @@
 package 笔试;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
         // 定义36进制数字
@@ -87,23 +89,11 @@ public class Main {
         }
 
         public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            String str = scanner.nextLine();
-            if (str.contains("-"))
-            {
-                str = str.replace("-", "");
-                long x = ThirtysixToDeciaml(str.toUpperCase());
-                System.out.println("-"+x);
+            Set<Short> s = new HashSet<>();
+            for (Short i = 0; i < 100; i++) {
+                s.add(i);
+                s.remove(i-1);
             }
-
-           else if (isLetterDigit(str))
-            {
-              long x = ThirtysixToDeciaml(str.toUpperCase());
-                System.out.println(x);
-            }
-            else {
-                System.out.println(0);
-            }
-
+            System.out.println(s.size());
         }
     }
