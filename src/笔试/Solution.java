@@ -12,21 +12,30 @@ import java.util.Arrays;
  */
 public class Solution {
     public static void main(String[] args) {
+        System.out.println(sum(3,5));
     }
 
-
-    public long sum(int num, int itemNum) {
+//    int sum = 0, a, n, pre = 0;
+//    Scanner sc = new Scanner(System.in);
+//		System.out.println("请输入项数：");
+//    n = sc.nextInt();
+//		System.out.println("请输入数值：");
+//    a = sc.nextInt();
+//		for ( int i = 1; i <= n; i++ ) {
+//
+//        pre += a;
+//        sum += pre;
+//        a *= 10;
+//
+//    }
+//
+//		System.out.println("结果："+sum);
+    public  static  long sum(int num, int itemNum) {
         long sum = 0, pre = 0;
-        //  Scanner sc = new Scanner(System.in);
-        //     System.out.println("请输入项数：");
-        //  n = sc.nextInt();
-        //System.out.println("请输入数值：");
-        // a = sc.nextInt();
-        for (long i = 1; i <= num; i++) {
-
-            pre += itemNum;
+        for (long i = 1; i <= itemNum; i++) {
+            pre += num;
             sum += pre;
-            itemNum *= 10;
+            num *= 10;
         }
         return sum;
     }
