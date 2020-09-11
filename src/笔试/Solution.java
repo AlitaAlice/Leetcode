@@ -11,18 +11,23 @@ import java.util.Arrays;
  * @date Created in 15:28 2020/9/11
  */
 public class Solution {
-//    public static void main(String[] args) {
-//        public long (int num, int itemNum)
-//        {
-//
-//        }
-//    }
-public int minMoves2(int[] nums) {
-    Arrays.sort(nums);
-    int i = 0,j = nums.length - 1, res = 0;
-    while (i < j) {
-        res += nums[j--] - nums[i++];
+    public static void main(String[] args) {
     }
-    return res;
-}
+
+
+    public long sum(int num, int itemNum) {
+        long sum = 0, pre = 0;
+        //  Scanner sc = new Scanner(System.in);
+        //     System.out.println("请输入项数：");
+        //  n = sc.nextInt();
+        //System.out.println("请输入数值：");
+        // a = sc.nextInt();
+        for (long i = 1; i <= num; i++) {
+
+            pre += itemNum;
+            sum += pre;
+            itemNum *= 10;
+        }
+        return sum;
+    }
 }
