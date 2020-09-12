@@ -13,7 +13,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
-        long ss = Integer.parseInt(str);
+        long ss = 0;
+        try {
+             ss = Integer.parseUnsignedInt(str);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return;
+        }
         if (ss >= 0 && ss < Math.pow(2, 100)) {
             long source = binaryTodecimal2(str);
             //int source = scanner.nextInt();
