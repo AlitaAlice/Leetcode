@@ -13,17 +13,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
-        long source = binaryTodecimal2(str);
-        //int source = scanner.nextInt();
-        double target = Math.pow(source, 0.25);
-        if ((long)target==target)
-        {
-            System.out.println((long)target);
+        long ss = Integer.parseInt(str);
+        if (ss >= 0 && ss < Math.pow(2, 100)) {
+            long source = binaryTodecimal2(str);
+            //int source = scanner.nextInt();
+            double target = Math.pow(source, 0.25);
+            if ((long) target == target) {
+                System.out.println((long) target);
+            } else {
+                System.out.println((long) target + 1);
+            }
+        } else {
+            return;
         }
-        else
-        {
-            System.out.println((long)target+1);
-        }
-      //  System.out.println(target);
     }
 }
