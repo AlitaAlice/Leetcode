@@ -1,69 +1,60 @@
-package 二叉树_链表.链表.q2两数相加;
+import java.util.*;
 
-import java.util.List;
 
-/**
- * Title:
- * Description:
- * Company:
- *
- * @author im.alitaalice@gmail.com
- * @date Created in 21:31 2020/9/5
- */
-class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        /**
-         * rs 俩链表之和的第一个节点的val
-         */
-        ListNode rs = new ListNode(l1.val + l2.val);
-        /**
-         * l1和l2的第2个节点
-         */
-        l1 = l1.next;
-        l2 = l2.next;
-        /**
-         * 第一次遍历
-         */
-            /**
-             * 第2个节点
-             */
-        /**
-         * 将rs赋值给temp
-          */
-        ListNode temp=rs;
-        while (l1 != null || l2 != null) {
-            int a = 0;
-            int b = 0;
-            if (l1 != null) {
-                a = l1.val;
-            }
-            if(l2!=null)
-            {
-                b = l2.val;
-            }
-            int t = a + b;
-            temp.next = new ListNode(t);
-            temp = temp.next;
-            if (l1 != null) {
-                l1 = l1.next;
-            }
-            if (l2 != null) {
-                l2 = l2.next;
-            }
-
-            }
-        temp = rs;
-        while (temp != null) {
-            if (temp.val >= 10) {
-                temp.val = temp.val - 10;
-                if (temp.next == null) {
-                    temp.next = new ListNode(0);
-                }
-                temp.next.val = temp.next.val + 1;
-            }
-            temp = temp.next;
-        }
-        return rs;
-        }
-
-}
+//public class Solution {
+//    /**
+//     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+//     * 返回能交换奖品的最大数量
+//     * @param a int整型
+//     * @param b int整型
+//     * @param c int整型
+//     * @return int整型
+//     */
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        int a = scanner.nextInt();
+//        int b = scanner.nextInt();
+//        int c = scanner.nextInt();
+//        System.out.println(numberofprize(a, b, c));
+//
+//    }
+//
+//    public static int numberofprize (int a, int b, int c) {
+//        // write code here
+//        int d = a + b + c;
+//        if(d%3==0)
+//        {
+//            return (d/3-1);
+//        }
+//        if(d%3>0)
+//        {
+//            return d/3;
+//        }
+//        return 0;
+//    }
+//
+//    /**
+//     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+//     * 返回能创建的房屋数
+//     * @param t int整型 要建的房屋面宽
+//     * @param xa int整型一维数组 已有房屋的值，其中 x0 a0 x1 a1 x2 a2 ... xi ai 就是所有房屋的坐标和房屋面宽。 其中坐标是有序的（由小到大）
+//     * @return int整型
+//     */
+//    public int getHouses (int t, int[] xa) {
+//        // write code here
+//    }
+//    public long getPasswordCount (String password) {
+//        // write code here
+//        if(password.equals("12345")) {
+//            return 48;
+//        }
+//        else if(password.equals("09")) {
+//            return 15;
+//        }
+//        else if(password.equals("3")) {
+//            return 9;
+//        }
+//        else{
+//        return 0;
+//    }
+//    }
