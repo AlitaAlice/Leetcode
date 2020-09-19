@@ -1,35 +1,62 @@
-package 笔试;
+#include <iostream>
+using namespace std;
 
-import java.util.Scanner;
+        char map[10000][10000];
 
-public class Main{
-    //n代表需要输入的正整数
-    static int n,k = 2;
+        int main(void)
+        {
+        int i, j, m, n, tot;
+        char ch = 'A';
+        cin >> m >> n;
 
-    public static void main(String[] args) {
-      //  System.out.print("请输入一个大于2的正整数：");
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-//        System.out.print(n + "=");
-        Main example = new Main();
-        example.f(n);
+        for(i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+        map[i][j] = '0';
 
-    }
-    public void f(int n){
-        while (k <= n){
-            if(k == n){
-                System.out.print(n);
-                break;
-            }else if(n>k && n%k == 0){
-                System.out.println(k);
-                n = n/k;
-                f(n);
-                break;
-            }else if (n>k && n%k != 0){
-                k++;
-                f(n);
-                break;
-            }
+        i = j = tot = 0;
+        map[i][j] = 'A';
+        while (tot < n*m-1)
+        {
+        while (j+1 < n && map[i][j+1] == '0')
+        {
+        if (ch >= 90)  ch -= 26;
+        j = j + 1;
+        ch = ch + 1;
+        map[i][j] = ch;
+        tot = tot + 1;
         }
-    }
-}
+        while (i+1 < m && map[i+1][j] == '0')
+        {
+        if (ch >= 90)  ch -= 26;
+        i = i + 1;
+        ch = ch + 1;
+        map[i][j] = ch;
+        tot = tot + 1;
+        }
+        while (j-1 >= 0 && map[i][j-1] == '0')
+        {
+        if (ch >= 90)  ch -= 26;
+        j = j - 1;
+        ch = ch + 1;
+        map[i][j] = ch;
+        tot = tot + 1;
+        }
+        while (i-1 >= 0 && map[i-1][j] == '0')
+        {
+        if (ch >= 90)  ch -= 26;
+        i = i - 1;
+        ch = ch + 1;
+        map[i][j] = ch;
+        tot = tot + 1;
+        }
+        }
+
+        for (i = 0; i < m; i++)
+        {
+        for (j = 0; j < n; j++)
+        cout << "   " << map[i][j];
+        cout << endl;
+        }
+
+        return 0;
+        }
