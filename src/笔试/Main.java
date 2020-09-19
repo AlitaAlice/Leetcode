@@ -2,32 +2,33 @@ package 笔试;
 
 import java.util.Scanner;
 
-/**
- * @Auther: 大哥的叔
- * @Date: 2019/9/26 19:24
- * @Description:
- */
+public class Main{
+    //n代表需要输入的正整数
+    static int n,k = 2;
 
-public class Main {
-    public static void main (String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        char[] c = str.toCharArray();
-        BubbleSort(c);
-        str = str.valueOf(c);
-        System.out.println(str);
+    public static void main(String[] args) {
+      //  System.out.print("请输入一个大于2的正整数：");
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+//        System.out.print(n + "=");
+        Main example = new Main();
+        example.f(n);
+
     }
-
-
-    public static void BubbleSort (char[] ch) {
-        char temp = 0;
-        for (int i = 0; i < ch.length - 1; i++) {
-            for (int x = 0; x < ch.length - 1 - i; x++) {
-                if (ch[x] > ch[x + 1]) {
-                    temp = ch[x + 1];
-                    ch[x + 1] = ch[x];
-                    ch[x] = temp;
-                }
+    public void f(int n){
+        while (k <= n){
+            if(k == n){
+                System.out.print(n);
+                break;
+            }else if(n>k && n%k == 0){
+                System.out.println(k);
+                n = n/k;
+                f(n);
+                break;
+            }else if (n>k && n%k != 0){
+                k++;
+                f(n);
+                break;
             }
         }
     }
