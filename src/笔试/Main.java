@@ -1,60 +1,77 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-        char map[10000][10000];
+        const int ARROWS = 4;
+        const int RIGHT = 0;
+        const int DOWN = 1;
+        const int LEFT = 2;
+        const int UP = 3;
 
-        int main(void)
+        int main()
         {
-        int i, j, m, n, tot;
-        char ch = 'A';
+        int m, n;
+
+        // 输入数据
         cin >> m >> n;
 
-        for(i = 0; i < m; i++)
-        for (j = 0; j < n; j++)
-        map[i][j] = '0';
+        vector<vector<char> > matrix(m, vector<char>(n, ' '));
 
-        i = j = tot = 0;
-        map[i][j] = 'A';
-        while (tot < n*m-1)
-        {
-        while (j+1 < n && map[i][j+1] == '0')
-        {
-        if (ch >= 90)  ch -= 26;
-        j = j + 1;
-        ch = ch + 1;
-        map[i][j] = ch;
-        tot = tot + 1;
-        }
-        while (i+1 < m && map[i+1][j] == '0')
-        {
-        if (ch >= 90)  ch -= 26;
-        i = i + 1;
-        ch = ch + 1;
-        map[i][j] = ch;
-        tot = tot + 1;
-        }
-        while (j-1 >= 0 && map[i][j-1] == '0')
-        {
-        if (ch >= 90)  ch -= 26;
-        j = j - 1;
-        ch = ch + 1;
-        map[i][j] = ch;
-        tot = tot + 1;
-        }
-        while (i-1 >= 0 && map[i-1][j] == '0')
-        {
-        if (ch >= 90)  ch -= 26;
-        i = i - 1;
-        ch = ch + 1;
-        map[i][j] = ch;
-        tot = tot + 1;
+        // 填充处理
+        int arrow = RIGHT, row = 0, col = 0;
+        char c = 'A';
+        for(int i=1; i<=m*n; i++) {
+        matrix[row][col] = c;
+
+        // 计算下一个字母
+        if(++c > 'Z')
+        c = 'A';
+
+        // 计算下一个位置
+        if(arrow == RIGHT) {
+        if(col + 1 == n) {
+        row++;
+        arrow = (arrow + 1) % ARROWS;
+        } else if(matrix[row][col+1] != ' ') {
+        row++;
+        arrow = (arrow + 1) % ARROWS;
+        } else
+        col++;
+        } else if(arrow == DOWN) {
+        if(row + 1 == m) {
+        col--;
+        arrow = (arrow + 1) % ARROWS;
+        } else if(matrix[row+1][col] != ' ') {
+        col--;
+        arrow = (arrow + 1) % ARROWS;
+        } else
+        row++;
+        } else if(arrow == LEFT) {
+        if(col == 0) {
+        row--;
+        arrow = (arrow + 1) % ARROWS;
+        } else if(matrix[row][col-1] != ' ') {
+        row--;
+        arrow = (arrow + 1) % ARROWS;
+        } else
+        col--;
+        } else if(arrow == UP) {
+        if(row == 0) {
+        col++;
+        arrow = (arrow + 1) % ARROWS;
+        } else if(matrix[row-1][col] != ' ') {
+        col++;
+        arrow = (arrow + 1) % ARROWS;
+        } else
+        row--;
         }
         }
 
-        for (i = 0; i < m; i++)
-        {
-        for (j = 0; j < n; j++)
-        cout << "   " << map[i][j];
+        // 输出结果
+        for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++)
+        cout << "   " << matrix[i][j];
         cout << endl;
         }
 
