@@ -1,35 +1,52 @@
 package 笔试;
-
+/*
+ * Description:输入一个浮点数，请按照三位分节制（金融计数法）打印，
+ * 示例：1000.12 => 1,000.12
+ *   12345   678  .51 => 12,345,678.51
+ */
 import java.io.IOException;
 public class StringReverserThroughStack {
+    String s = "ss\0";
+
         private String input;
         private String output;
         public StringReverserThroughStack(String in) {
             input = in;
         }
-        public String doRev() {
-            int stackSize = input.length();
+        public void  trans(String string) {
+            int stackSize = string.length();
             Stack theStack = new Stack(stackSize);
-            for (int i = 0; i < input.length(); i++) {
-                char ch = input.charAt(i);
+
+//            for (int i = 0; i <string.length() ; i++) {
+//                char ch =string.
+//            }
+            //output = "";
+        while (string.length()/3>0)
+        {
+            for (int i =0 ; i <= 3; i++) {
+                stackSize--;
+                char ch = string.charAt(i);
                 theStack.push(ch);
             }
-            output = "";
-            while (!theStack.isEmpty()) {
-                char ch = theStack.pop();
-                output = output + ch;
-            }
-            return output;
+            theStack.pop();
+        }
+
+        for (int i =stackSize ; i < 3; i--) {
+            char ch = string.charAt(i);
+            theStack.push(ch);
+        }
+        theStack.pop();
+
         }
         public static void main(String[] args)
                 throws IOException {
-            String input = "www.w3cschool.cc";
-            String output;
-            StringReverserThroughStack theReverser =
-                    new StringReverserThroughStack(input);
-            output = theReverser.doRev();
-            System.out.println("反转前： " + input);
-            System.out.println("反转后： " + output);
+            String input = "12345678.51";
+            String[] chars = input.split(".");
+            String  str= chars[0];
+            String input1 = "12345678";
+          //  String input2 = new StringBuilder(str).reverse().toString();
+            StringReverserThroughStack theReverser = new StringReverserThroughStack(input1);
+            theReverser.trans(input1);
         }
         class Stack {
             private int maxSize;
@@ -44,6 +61,8 @@ public class StringReverserThroughStack {
                 stackArray[++top] = j;
             }
             public char pop() {
+                System.out.println(stackArray[top]);
+                top--;
                 return stackArray[top--];
             }
             public char peek() {
