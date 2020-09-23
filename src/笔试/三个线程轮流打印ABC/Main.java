@@ -1,4 +1,4 @@
-package 笔试.线程;
+package 笔试.三个线程轮流打印ABC;
 
 /**
  * Title:
