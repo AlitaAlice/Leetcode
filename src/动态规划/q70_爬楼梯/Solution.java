@@ -1,6 +1,7 @@
 package 动态规划.q70_爬楼梯;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Title:
@@ -12,7 +13,7 @@ import java.util.Arrays;
  */
 class Solution {
     // 后缀数组法
-        public String longestDupSubstring(String S) {
+        public static String longestDupSubstring(String S) {
             int len = S.length();
             String result = "";
             int maxLen = 0;
@@ -33,7 +34,7 @@ class Solution {
             return result;
         }
         // 两个后缀子串的前缀最长公共子串
-        public int lenTwoStr(String str1, String str2){
+        public static int lenTwoStr(String str1, String str2){
             if(str1.length() == 0 || str2.length() == 0)
                 return 0;
             int i = 0;
@@ -41,6 +42,13 @@ class Solution {
                 i ++;
             return i;
         }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        System.out.println(longestDupSubstring(str));
+
     }
 
 /*    public int climbStairs(int n) {
