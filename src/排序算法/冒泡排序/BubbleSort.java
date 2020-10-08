@@ -1,6 +1,7 @@
 package 排序算法.冒泡排序;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Title:
@@ -15,6 +16,22 @@ import java.util.Arrays;
  * @date Created in 16:32 2020/9/7
  */
 public class BubbleSort {
+    public static int[] sort(int[] sourceArray) {
+
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        for (int i = 1; i < arr.length; i++) {
+            int tmp = arr[i];
+            int j = i;
+            while (j > 0 && tmp < arr[j - 1]) {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            if (j != i) {
+                arr[j] = tmp;
+            }
+        }
+        return arr;
+    }
     public static int[] bubblesort(int[] arr) {
         int temp;
         for (int i = 0; i < arr.length-1; i++) {
@@ -28,32 +45,27 @@ public class BubbleSort {
         }
         return arr;
     }
-    public static int[] selectionSort(int[] arr) {
-        //int min;
-        for (int i = 0; i < arr.length - 1; i++) {
-
-            int min = i;
-            for (int j = i+1; j < arr.length ; j++) {
-                if (arr[j] < arr[min]) {
-                    min = j;
-                }
-            }
-            int temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
-        }
-        return arr;
-
-    }
-
     public static void main(String[] args) {
-        int[] arr = {1, 12, 33, 2, 1312, 3214, 22, 14, 111};
-        //Arrays.sort(arr);
-    //   arr = bubblesort(arr);
-        arr = selectionSort(arr);
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        String[] strings=str.split(" ");
+        int[] arr = StringToInt(strings);
+        arr = sort(arr);
         for (int i = 0; i <arr.length ; i++) {
             System.out.print(arr[i]+" ");
         }
     }
+    public static int[] StringToInt(String[] arrs){
 
+        int[] ints = new int[arrs.length];
+
+        for(int i=0;i<arrs.length;i++){
+
+            ints[i] = Integer.parseInt(arrs[i]);
+
+        }
+
+        return ints;
+
+    }
 }

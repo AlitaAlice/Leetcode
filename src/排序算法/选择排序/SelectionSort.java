@@ -10,19 +10,12 @@ package 排序算法.选择排序;
  */
 public class SelectionSort {
 
+    /**
+     * 不稳定排序  原地排序
+     * @param arr
+     */
     public void selectionSort(int[] arr) {
-//        for (int i = 0; i <arr.length ; i++) {
-//            for (int j = i; j <arr.length ; j++) {
-//               if( arr[i]>arr[j+1])
-//               {
-//                   int temp=arr[i];
-//                   arr[i]=arr[j+1];
-//                   arr[j + 1] = temp;
-//               }
-//            }
-//
-//        }
-//    }
+
         /**
          * 记录min下标
          */
@@ -34,6 +27,7 @@ public class SelectionSort {
                     min = j;
                 }
             }
+
             int temp = arr[i];
             arr[i] = arr[min];
             arr[min] = temp;
