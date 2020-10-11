@@ -45,6 +45,7 @@ public class BubbleSort {
         }
         return arr;
     }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
@@ -55,6 +56,7 @@ public class BubbleSort {
             System.out.print(arr[i]+" ");
         }
     }
+
     public static int[] StringToInt(String[] arrs){
 
         int[] ints = new int[arrs.length];

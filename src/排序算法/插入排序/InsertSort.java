@@ -15,7 +15,7 @@ public class InsertSort {
     /**
      * 思路： 依次选择元素进行插入，向前选择合适的位置进行插入，直到遍历到最后一个元素
      * 稳定排序 原地排序
-     * O(n)
+     * O(n^2)
      * @param sourceArray
      * @return
      */
@@ -30,6 +30,7 @@ public class InsertSort {
                 arr[j] = arr[j - 1];
                 j--;
             }
+            
             if (j != i) {
                 arr[j] = tmp;
             }
