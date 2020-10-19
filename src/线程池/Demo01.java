@@ -20,7 +20,7 @@ public class Demo01 {
     public static void main(String[] args) {
         //ExecutorService threadPool = Executors.newSingleThreadExecutor();
 //        ExecutorService
-    //    ExecutorService threadPool=  Executors.newFixedThreadPool(5);
+    //    ExecutorService threadPool=  Executors.newFixedThreadPool(5) sdsd;
         ExecutorService threadPool=   Executors.newCachedThreadPool();
         try {
             for (int i = 0; i < 10; i++) {
